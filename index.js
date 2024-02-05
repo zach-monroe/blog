@@ -26,8 +26,6 @@ app.listen(port, () => {
 
 var posts = [];
 
-// TODO: Make header
-// TODO: Make footer
-// TODO: Style posts
 // TODO: Make Example Posts
-// TODO: Make Navbar
+// TODO: Add Edit Functionality https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/forms
+// TODO: Add Delete Functionality

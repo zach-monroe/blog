@@ -1,16 +1,23 @@
 <%- include("partials/header.ejs") %>
-<h1>Zach Monroe's Blog</h1>
+<div class="container">
+<div class="row gy-5">
+  <h1>Monroe Musings</h1>
 <% if (locals.posts.length > 0) { %>
 <%  for (var i = 0; i < posts.length; i++){ %>
   <div class= "container">
-    <h2> <%= posts[i]["title"] %> </h2>
-    <h4> <%= posts[i]["author"] %> </h4>
-    <p> <%= posts[i]["post"] %> </p>
+    <article class="blog-post">
+        <h2 class="display-5 link-body-emphasis mb-1"> <%= posts[i]["title"] %> </h2>
+        <h4> <%= posts[i]["author"] %> </h4>
+        <p> <%= posts[i]["post"] %> </p>
+        <hr>
+    </article>
   </div>
  <% } %> 
 <% } else { %>
   <h2>No Posts - Time to get creative!</h2>
 <% } %>
+</div>
+</div>
 <%- include("partials/footer.ejs") %>
 
 
