@@ -1,5 +1,6 @@
 <%- include("partials/header.ejs") %>
 <div class="container">
+  <% if (!locals.posts)  { %>
 <form action="/submit" method="POST">
 <div class="mb-3">
   <label for="author" class="form-label">Full Name:</label>
@@ -7,7 +8,7 @@
 </div>
 <div class="mb-3">
   <label for="title" class="form-label">Title:</label>
-  <input type="text" class="form-control" name="title" id="exampleFormControlInput1" placeholder="My First Post">
+  <input type="text" class="form-control" name="title" id="exampleFormControlInput1" placeholder="My Post">
 </div>
 <div class="mb-3">
   <label for="post" class="form-label">Write Your Post Here</label>
@@ -16,4 +17,24 @@
 <button type="submit" class="btn btn-light" value="submit">Submit</button>
 </form>
 </div>
+<% } else{ %>
+<form action="/edit/submit" method="POST">
+<div class="mb-3">
+  <label for="author" class="form-label">Full Name:</label>
+    <input type="text" class="form-control" name="author" id="exampleFormControlInput1" placeholder="John Smith" value="<%= posts[id]['author'] %>">
+</div>
+<div class="mb-3">
+  <label for="title" class="form-label"> Title:</label>
+  <input type="text" class="form-control" name="title" id="exampleFormControlInput1" placeholder="My Post" value="<%= posts[id]['title'] %>">
+</div>
+<div class="mb-3">
+  <label for="post" class="form-label">Write Your Post Here</label>
+  <textarea class="form-control" id="exampleFormControlTextarea1" name="post" rows="3"><%= posts[id]["post"] %> </textarea>
+</div>
+<input type="hidden" name="id" value="<%=id %>" >
+<button type="submit" class="btn btn-light" value="submit">Submit</button>
+</form>
+</div>
+
+<% } %>
 <%- include("partials/footer.ejs") %>
